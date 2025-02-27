@@ -1,0 +1,33 @@
+.container {
+    //height: calc(100% - (var(--margin-vertical) *2));
+    flex: 1;
+    width: calc(80% - (var(--margin-horizontal) *2));
+    align-self: center;
+    padding: 41px 48px;
+}
+
+.secondary_container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+
+    .footer {
+        display: flex;
+        gap: 10px;
+        cursor: pointer;
+        span {
+            font-weight: 700;
+            font-size: 18px;
+            line-height: 24.55px;
+            font-family: 'Nunito', sans-serif;
+        }
+    }
+
+    .footer:hover {
+        span {
+            color: rgb(163, 163, 163);
+        }
+    }
+
+}
