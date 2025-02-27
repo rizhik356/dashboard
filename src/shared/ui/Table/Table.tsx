@@ -6,6 +6,7 @@ import { useEffect, useState } from 'react'
 import { Data } from '../../../modules/Dashboard/types/DasboardData'
 import defaultSortInfo from './sources/defaultsSortinfo'
 import makeDirection from './helpers/makeDirection'
+import sortData from "./helpers/sortData";
 
 const Table = ({ data }: Props) => {
   const [sortedData, setSortedData] = useState<Array<Data>>([])
@@ -24,15 +25,9 @@ const Table = ({ data }: Props) => {
 
     setSortInfo({ dataIndex, direction })
 
-    const newSortedData = [...data]
+    const sortedData = sortData(data, direction, dataIndex)
 
-    if (direction === 'asc') {
-      newSortedData.sort((a, b) => (a[dataIndex] > b[dataIndex] ? 1 : -1))
-    } else if (direction === 'desc') {
-      newSortedData.sort((a, b) => (a[dataIndex] < b[dataIndex] ? 1 : -1))
-    }
-
-    setSortedData(newSortedData)
+    setSortedData(sortedData)
   }
 
   return (
